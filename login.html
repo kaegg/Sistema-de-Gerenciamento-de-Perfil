@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./src/css/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="./src/js/index.js"></script>
+</head>
+<body>
+    <div class="container" id="login">
+
+        <div id="tituloLogin">
+            <h1>Login <i data-feather="lock"></i></h1> 
+            <script>
+                feather.replace()
+            </script>  
+        </div>
+
+        <form id="formLogin" action="">
+        
+            <div id="inputsLogin" class="input-group">
+                <span>Email:</span>
+                <input type="email" placeholder="Email" id="email" class="form-control">
+                
+                <span>Senha:</span>
+                <div id="senha">
+                    <input type="password" placeholder="Senha" id="inputSenha" class="form-control" required>
+                    <span id="mostrarSenha" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                </div>
+                
+            </div>
+        
+            <div id="buttonLogin">
+                <button type="button" class="btn btn-default">Entrar</button>
+            </div>
+        
+        </form>
+    </div>
+    
+    <div class="create">
+        <p>Não possui conta ainda? <a href="" target="_self" id="newAccount"><u>criar conta</u></a></p>
+    </div>
+
+</body>
+</html>

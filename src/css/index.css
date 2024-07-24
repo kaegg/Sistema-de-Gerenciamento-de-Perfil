@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Titillium+Web:wght@600&display=swap');
+
+body{
+    background: #2f2f2f;
+    color: aliceblue;
+    font-family: 'Poppins', sans-serif;
+    /* background-attachment: fixed; */
+}
+
+.feather {
+    width: 50px;
+    height: 50px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+#tituloLogin{
+    font-size: 30px;
+    text-align: center;
+}
+
+#login {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  border: solid;
+  padding: 50px;
+  margin-top: 100px;
+  border-radius: 15px;
+}
+
+#inputsLogin {
+  display: flex;
+  flex-direction: column;
+}
+
+#inputsLogin span{
+    margin-top: 20px;
+}
+
+#inputsLogin input{
+    border-radius: 40px;
+    text-align: center;
+    height: 40px;
+    font-size: 1.2rem;
+    color: #000;
+}
+
+#senha {
+    position: relative;
+}
+
+#mostrarSenha {
+    position: absolute;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 3;
+    color: #2f2f2f;
+}
+
+#senha input {
+    padding-right: 30px; /* Espaco adicional para o icone */
+}
+
+#buttonLogin button{
+    margin-top: 10px;
+    color: #2f2f2f;
+    border-radius: 10px;
+}
+
+.create{
+  text-align: center;
+  margin-top: 25px;
+  font-size: 15px;
+}
+
+#newAccount{
+  color: aliceblue;
+}
