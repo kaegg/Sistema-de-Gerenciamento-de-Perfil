@@ -4,10 +4,11 @@ $(document).ready(() => {
 
 function iniciar(){
     exibirSenha();
+    eventosBotoes();
 }
 
 function exibirSenha(){
-    $("#mostrarSenha").on("click", () => {
+    $(".mostrarSenha").on("click", () => {
         var senha = $("#inputSenha");
         var type  = senha.attr("type");
 
@@ -17,6 +18,12 @@ function exibirSenha(){
             senha.attr("type", "password");
         }
 
-        $("#mostrarSenha").toggleClass('glyphicon-eye-open glyphicon-eye-close');
+        $(".mostrarSenha").toggleClass('glyphicon-eye-open glyphicon-eye-close');
     });
 }
+
+// function eventosBotoes(){
+//     $("#btnEntrar").on("click", () => {
+//         window.open("../../cadastro.html", "_self");
+//     });
+// }
