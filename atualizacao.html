@@ -5,84 +5,203 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atualizar Perfil</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./src/css/atualizacao.css">
+    <link rel="stylesheet" href="./src/css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/feather-icons"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script src="./src/js/atualizacao.js" defer></script>
+    <script src="./src/js/index.js" defer></script>
 </head>
 <body>
     <div class="container" id="updateProfile">
         <div id="tituloUpdateProfile">
-            <i data-feather="edit"></i>
-            <h1>Atualizar Perfil</h1>
-            <script>
-                feather.replace();
-            </script>
+            <h1>Atualizar Perfil <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></h1>
         </div>
 
         <form id="updateProfileForm">
             <div id="inputsUpdateProfile" class="input-group">
-                <div class="form-group">
-                    <label for="name">Nome:</label>
-                    <input type="text" id="name" class="form-control" required>
-                    <span id="nameError" class="error-message"></span>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Nome:</label>
+                        <input type="text" id="name" class="form-control" required>
+                        <span id="nameError" class="error-message"></span>
+                    </div>
+                    
+                    <!-- adicionar no js -->
+                    <div class="form-group col-md-6">
+                        <label for="lastName">Sobrenome:</label>
+                        <input type="text" id="lastName" class="form-control" required>
+                        <span id="lastNameError" class="error-message"></span>  
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="rg" style="margin-top: 15px;">RG:</label>
-                    <input type="text" id="rg" class="form-control" required>
-                    <span id="rgError" class="error-message"></span>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="rg" style="margin-top: 15px;">RG:</label>
+                        <input type="number" id="rg" class="form-control" required>
+                        <span id="rgError" class="error-message"></span>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="cpf" style="margin-top: 15px;">CPF:</label>
+                        <input type="number" id="cpf" class="form-control" required>
+                        <span id="cpfError" class="error-message"></span>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="cpf" style="margin-top: 15px;">CPF:</label>
-                    <input type="text" id="cpf" class="form-control" required>
-                    <span id="cpfError" class="error-message"></span>
+                <!-- adicionar no js -->
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="cep" style="margin-top: 15px;">CEP:</label>
+                        <input type="number" id="cep" class="form-control" required>
+                        <span id="cepError" class="error-message"></span>
+                    </div>
+                    
+                    <div class="form-group col-md-6">
+                        <label for="address" style="margin-top: 15px;">Endereço:</label>
+                        <input type="text" id="address" class="form-control" required>
+                        <span id="addressError" class="error-message"></span>
+                    </div>
+                    
+                    <!-- adicionar JS -->
+                    <div class="form-group col-md-2">
+                        <label for="numero" style="margin-top: 15px;">N°:</label>
+                        <input type="number" id="numero" class="form-control" required>
+                        <span id="numeroError" class="error-message"></span>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="address" style="margin-top: 15px;">Endereço:</label>
-                    <input type="text" id="address" class="form-control" required>
-                    <span id="addressError" class="error-message"></span>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="bairro" style="margin-top: 15px;">Bairro:</label>
+                        <input type="text" id="bairro" class="form-control" required>
+                        <span id="bairroError" class="error-message"></span>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="complemento" style="margin-top: 15px;">Complemento:</label>
+                        <input type="text" id="complemento" class="form-control" required>
+                        <span id="complementoError" class="error-message"></span>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="uf" style="margin-top: 15px;">UF:</label>
+                        <input type="text" id="uf" class="form-control" required>
+                        <span id="ufError" class="error-message"></span>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="phone" style="margin-top: 15px;">Telefone:</label>
-                    <input type="text" id="phone" class="form-control" required>
-                    <span id="phoneError" class="error-message"></span>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="phone" style="margin-top: 15px;">Telefone:</label>
+                        <input type="number" id="phone" class="form-control" required>
+                        <span id="phoneError" class="error-message"></span>
+                    </div>
+    
+                    <div class="form-group col-md-6">
+                        <label for="email" style="margin-top: 15px;">E-mail:</label>
+                        <input type="email" id="email" class="form-control inputs" required>
+                        <span id="emailError" class="error-message"></span>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="email" style="margin-top: 15px;">E-mail:</label>
-                    <input type="email" id="email" class="form-control" required>
-                    <span id="emailError" class="error-message"></span>
-                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="cartao" style="margin-top: 15px;">Cartão:</label>
+                        <select id="cartao" class="inputs">
+                            <option value="">-- Selecione uma opção --</option>
+                            <option value="credito">Cartão de crédito</option>
+                            <option value="debito">Cartão de débito</option>
+                        </select> 
+                    </div>
 
-                <div class="form-group">
-                    <label for="creditCard" style="margin-top: 15px;">Cartão de Crédito:</label>
-                    <input type="text" id="creditCard" class="form-control" required>
-                    <span id="creditCardError" class="error-message"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="debitCard" style="margin-top: 15px;">Cartão de Débito:</label>
-                    <input type="text" id="debitCard" class="form-control" required>
-                    <span id="debitCardError" class="error-message"></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="pixKeys" style="margin-top: 15px;">Chave(s) Pix:</label>
-                    <input type="text" id="pixKeys" class="form-control" required>
-                    <span id="pixKeysError" class="error-message"></span>
+                    <div class="form-group col-md-6">
+                        <label for="chavePix" style="margin-top: 15px;">Chave(s) Pix:</label>
+                        <select id="chavePix" class="inputs">
+                            <option value="">-- Selecione uma opção --</option>
+                            <option value="celular">Celular</option>
+                            <option value="email">E-mail</option>
+                            <option value="cpf">CPF</option>
+                            <option value="aleatoria">Aleatória</option>
+                        </select> 
+                        <!-- <span id="pixKeysError" class="error-message"></span> -->
+                    </div>
                 </div>
             </div>
 
             <div id="buttonUpdateProfile">
-                <button type="submit" id="btnAtualizar" class="btn btn-default btnExt">Atualizar</button>
+                <button type="submit" id="btnAtualizar" class="btn btn-default btnExt">
+                    <span class="glyphicon glyphicon glyphicon-floppy-disk"></span> Atualizar</button>
             </div>
         </form>
+
+        <!-- Modal para informações do cartão -->
+        <div class="modal fade" id="cartaoModal" tabindex="-1" role="dialog" aria-labelledby="cartaoModalTitulo">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </button>
+                        <h4 class="modal-title text-center" id="cartaoModalTitulo"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formCadastrarCartao">
+            
+                            <div class="form-group">
+                                <label for="nomeTitular">Nome:</label>
+                                <input type="text" class="form-control inputs" id="nomeTitular" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="numeroCartao">Número do cartão:</label>
+                                <input type="number" class="form-control inputs" id="numeroCartao" required>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="cvv">CVV:</label>
+                                    <input type="number" class="form-control inputs" id="cvv"  required>
+                                </div>
+    
+                                <div class="form-group col-md-6">
+                                    <label for="validade">Validade:</label>
+                                    <input type="month" class="form-control inputs" id="validade" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-default btnExt">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para informações do pix -->
+        <div class="modal fade" id="pixModal" tabindex="-1" role="dialog" aria-labelledby="pixTitulo">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </button>
+                        <h4 class="modal-title text-center" id="pixTitulo"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formCadastrarPix">
+            
+                            <div class="form-group">
+                                <label for="chave">Chave pix:</label>
+                                <input type="text" class="form-control inputs" id="chave" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-default btnExt">Salvar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

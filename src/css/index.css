@@ -41,7 +41,8 @@ body, .modal-content{
     margin-top: 60px;
 }
 
-#inputsLogin input, .inputs{
+#inputsLogin input, .inputs, 
+#inputsUpdateProfile input{
     border-radius: 40px;
     text-align: center;
     height: 40px;
@@ -85,3 +86,56 @@ body, .modal-content{
   color: #f0f8ff;
   cursor: pointer;
 }
+
+.close{
+    color: #fff;
+}
+
+/* Tela de atualização */
+#tituloUpdateProfile {
+    font-size: 30px;
+    text-align: center;
+}
+
+#updateProfile {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    padding: 50px;
+    margin-top: 100px;
+    border-radius: 15px;
+}
+
+#inputsUpdateProfile {
+    display: flex;
+    flex-direction: column;
+}
+
+#inputsUpdateProfile .form-group {
+    margin-bottom: 20px;
+}
+
+#btnAtualizar {
+    margin-top: 10px;
+    color: #2f2f2f;
+}
+
+.btnExt {
+    border-radius: 10px;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+#cartao, #chavePix{
+    width: 100%;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}   
