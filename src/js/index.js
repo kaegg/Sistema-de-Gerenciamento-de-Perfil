@@ -3,9 +3,11 @@ $(document).ready(() => {
 });
 
 function iniciar(){
+    validarFormulario();
     exibirSenha();
     exibeModalCartao();
-    // validaAtualizacao();
+    //aplicarMascaras();
+    validaAtualizacao();
     eventosBotoes();
     exibeModalPix();
 }
@@ -68,7 +70,13 @@ function exibeModalPix(){
         $("#pixModal").modal("show");
     });
 }
-
+/*
+function aplicarMascaras(){
+    $('#cpf').mask('000.000.000-00');
+    $('#rg').mask('00.000.000-0');
+    $('#phone').mask('(00) 00000-0000');
+}
+*/
 function validaAtualizacao(){
     const form = document.getElementById('updateProfileForm');
 
@@ -78,16 +86,16 @@ function validaAtualizacao(){
     const addressInput = document.getElementById('address');
     const phoneInput = document.getElementById('phone');
     const emailInput = document.getElementById('email');
-    // const creditCardInput = document.getElementById('creditCard');
-    // const debitCardInput = document.getElementById('debitCard');
-    // const pixKeysInput = document.getElementById('pixKeys');
+    const creditCardInput = document.getElementById('creditCard');
+    const debitCardInput = document.getElementById('debitCard');
+    const pixKeysInput = document.getElementById('pixKeys');
+
 
     // Adicionar máscaras aos campos
     $('#cpf').mask('000.000.000-00');
     $('#rg').mask('00.000.000-0');
     $('#phone').mask('(00)00000-0000');
-    // $('#creditCard').mask('0000 0000 0000 0000');
-    // $('#debitCard').mask('0000 0000 0000 0000');
+    $('#cep').mask('00000-000');
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -169,6 +177,53 @@ function validaAtualizacao(){
             // Enviar o formulário
             console.log("Formulário válido e enviado");
             form.submit();
+        }
+    });
+}
+
+/*
+function carregarComentarios() {
+    const comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
+    const comentariosUl = $('#comentariosUl');
+    comentariosUl.empty();
+    comentarios.forEach(comentario => {
+        comentariosUl.append(`<li><strong>${comentario.nome}:</strong> ${comentario.comentario}</li>`);
+    });
+
+}*/
+
+function salvarComentario(nome, comentario) {
+    const comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
+    comentarios.push({ nome, comentario });
+    localStorage.setItem('comentarios', JSON.stringify(comentarios));
+    $('#comentariosForm')[0].reset();
+    carregarComentarios();
+}
+
+function validarFormulario() {
+    $('#comentariosForm').submit((event) => {
+        event.preventDefault();
+        
+        let valid = true;
+        const nome = $('#nome').val().trim();
+        const comentario = $('#comentario').val().trim();
+        
+        if (nome === '') {
+            $('#nomeError').text('Nome não pode estar vazio');
+            valid = false;
+        } else {
+            $('#nomeError').text('');
+        }
+        
+        if (comentario === '') {
+            $('#comentarioError').text('Comentário não pode estar vazio');
+            valid = false;
+        } else {
+            $('#comentarioError').text('');
+        }
+        
+        if (valid) {
+            salvarComentario(nome, comentario);
         }
     });
 }
