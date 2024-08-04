@@ -44,7 +44,6 @@ body, .modal-content{
 #inputsLogin input, .inputs, 
 #inputsUpdateProfile input{
     border-radius: 40px;
-    text-align: center;
     height: 40px;
     font-size: 1.2rem;
     color: #000;
@@ -82,7 +81,7 @@ body, .modal-content{
   font-size: 15px;
 }
 
-#novaConta{
+#novaConta, a{
   color: #f0f8ff;
   cursor: pointer;
 }
@@ -95,6 +94,23 @@ body, .modal-content{
 #tituloUpdateProfile {
     font-size: 30px;
     text-align: center;
+}
+
+.profile-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.edit-icon {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: #00000066;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
 }
 
 #updateProfile {
@@ -137,7 +153,6 @@ body, .modal-content{
 
 input[type=number]::-webkit-inner-spin-button { 
     -webkit-appearance: none;
-    
 }   
 
 /* Estilos para a página de Comentários */
@@ -146,14 +161,27 @@ input[type=number]::-webkit-inner-spin-button {
     text-align: center;
 }
 
-#comentarios {
+#comentarios{
     display: flex;
     flex-direction: column;
     border: solid;
     padding: 50px;
     margin-top: 100px;
     border-radius: 15px;
-    width: 700px;
+    width: 800px;
+
+}
+
+.comentario{
+    border-radius: 15px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    color: #000;
+    padding: 10px;
+    height: 130px!important;
+    max-height: 300px; 
+    resize: none;      
+    overflow: auto;    
 }
 
 #inputsComentarios {
@@ -166,20 +194,10 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 #inputsComentarios input, #inputsComentarios textarea {
-    border-radius: 40px;
-    text-align: center;
+    border-radius: 15px;
     font-size: 1.2rem;
     color: #000;
     padding: 10px;
-}
-
-#inputsComentarios textarea {
-    height: 100px;
-}
-
-#btnEnviarComentario {
-    margin-top: 10px;
-    color: #2f2f2f;
 }
 
 .btnExt {
@@ -190,10 +208,6 @@ input[type=number]::-webkit-inner-spin-button {
     color: red;
     font-size: 0.9em;
     margin-top: 5px;
-}
-
-#comentariosList {
-    margin-top: 30px;
 }
 
 #comentariosList h2 {
@@ -209,14 +223,27 @@ input[type=number]::-webkit-inner-spin-button {
 #comentariosUl li {
     background: #444;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border-radius: 10px;
-    color: #f0f8ff;
 }
 
-#inputsComentarios textarea {
-    height: 100px;
-    max-height: 100px; /* Altura máxima */
-    resize: none; /* Impedir redimensionamento pelo usuário */
-    overflow: auto; /* Adicionar barra de rolagem quando necessário */
+#comentariosUl span{
+    margin-left: 10px;
+}
+
+.iconePerfil{
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border-radius: 50px;
+    padding: 0px;
+}
+
+.nav-tabs>li>a:hover, .nav-tabs>li.active>a{
+    color: #2f2f2f;
+}
+
+.nav-tabs{
+    background-color:#2f2f2f;
 }

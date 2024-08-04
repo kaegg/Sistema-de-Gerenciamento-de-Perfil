@@ -6,10 +6,14 @@ function iniciar(){
     validarFormulario();
     exibirSenha();
     exibeModalCartao();
-    //aplicarMascaras();
-    validaAtualizacao();
+    
+    if ($('#updateProfileForm').length) {
+        validaAtualizacao();
+    }
+
     eventosBotoes();
     exibeModalPix();
+    atualizarImgPerfil();
 }
 
 function exibirSenha(){
@@ -70,25 +74,19 @@ function exibeModalPix(){
         $("#pixModal").modal("show");
     });
 }
-/*
-function aplicarMascaras(){
-    $('#cpf').mask('000.000.000-00');
-    $('#rg').mask('00.000.000-0');
-    $('#phone').mask('(00) 00000-0000');
-}
-*/
-function validaAtualizacao(){
-    const form = document.getElementById('updateProfileForm');
 
-    const nameInput = document.getElementById('name');
-    const rgInput = document.getElementById('rg');
-    const cpfInput = document.getElementById('cpf');
-    const addressInput = document.getElementById('address');
-    const phoneInput = document.getElementById('phone');
-    const emailInput = document.getElementById('email');
+function validaAtualizacao(){
+    const form            = document.getElementById('updateProfileForm');
+
+    const nameInput       = document.getElementById('name');
+    const rgInput         = document.getElementById('rg');
+    const cpfInput        = document.getElementById('cpf');
+    const addressInput    = document.getElementById('address');
+    const phoneInput      = document.getElementById('phone');
+    const emailInput      = document.getElementById('email');
     const creditCardInput = document.getElementById('creditCard');
-    const debitCardInput = document.getElementById('debitCard');
-    const pixKeysInput = document.getElementById('pixKeys');
+    const debitCardInput  = document.getElementById('debitCard');
+    const pixKeysInput    = document.getElementById('pixKeys');
 
 
     // Adicionar máscaras aos campos
@@ -181,39 +179,12 @@ function validaAtualizacao(){
     });
 }
 
-/*
-function carregarComentarios() {
-    const comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
-    const comentariosUl = $('#comentariosUl');
-    comentariosUl.empty();
-    comentarios.forEach(comentario => {
-        comentariosUl.append(`<li><strong>${comentario.nome}:</strong> ${comentario.comentario}</li>`);
-    });
-
-}*/
-
-function salvarComentario(nome, comentario) {
-    const comentarios = JSON.parse(localStorage.getItem('comentarios')) || [];
-    comentarios.push({ nome, comentario });
-    localStorage.setItem('comentarios', JSON.stringify(comentarios));
-    $('#comentariosForm')[0].reset();
-    carregarComentarios();
-}
-
 function validarFormulario() {
     $('#comentariosForm').submit((event) => {
         event.preventDefault();
         
         let valid = true;
-        const nome = $('#nome').val().trim();
         const comentario = $('#comentario').val().trim();
-        
-        if (nome === '') {
-            $('#nomeError').text('Nome não pode estar vazio');
-            valid = false;
-        } else {
-            $('#nomeError').text('');
-        }
         
         if (comentario === '') {
             $('#comentarioError').text('Comentário não pode estar vazio');
@@ -221,15 +192,37 @@ function validarFormulario() {
         } else {
             $('#comentarioError').text('');
         }
-        
-        if (valid) {
-            salvarComentario(nome, comentario);
-        }
     });
 }
 
 function eventosBotoes(){
     $("#btnEntrar").on("click", () => {
-        window.open("../../atualizacao.html", "_self");
+        window.open("../../comentarios.html", "_self");
+    });
+}
+
+function atualizarImgPerfil(){
+    $(".profile-wrapper").click(() => {
+        $("#imgPerfil").click();
+    });
+
+    $("#imgPerfil").change(function() {
+        var file = this.files[0];
+
+        if (file) {
+            var validImageTypes = ["image/jpeg", "image/png", "image/gif", "image/svg+xml"];
+
+            if ($.inArray(file.type, validImageTypes) < 0) {
+                alert("Por favor, selecione um arquivo de imagem válido (JPEG, PNG, GIF).");
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+
+            reader.onload = function(readerEvent) {
+                $("#imagemPerfil").attr("src", readerEvent.target.result);
+            }
+        }
     });
 }
